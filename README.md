@@ -1,5 +1,5 @@
 <h3 align="center">
-	bark
+	pagine
 </h3>
 <p align="center">
 	Client-side markdown website generator
@@ -19,5 +19,5 @@
 ## Installation
 **via npm**
 ```bash
-npm install bark --save
+npm install pagine --save
 ```
