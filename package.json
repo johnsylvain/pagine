@@ -5,5 +5,21 @@
   "main": "index.js",
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts" :{
+    "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --progress --colors --watch",
+    "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack"
+  },
+  "dependencies": {
+    "front-matter": "^2.2.0",
+    "navigo": "^5.3.1",
+    "showdown": "^1.7.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "jest": "^21.2.1",
+    "webpack": "^3.6.0"
+  }
 }
