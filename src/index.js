@@ -1,4 +1,4 @@
-import { Converter } from 'showdown';
+import { markdown } from 'markdown';
 import Navigo from 'navigo';
 import template from 'lodash/template'
 
@@ -6,11 +6,11 @@ export default class Pagine {
   constructor(settings) {
     this.router = new Navigo(null, true);
     this.template = template(document.body.textContent.trim());
-    this.converter = new Converter();
+    this.converter = markdown;
 
     this.createRoutes(settings.routes);
   }
-  
+
   createRoutes(routes) {
     this.router.on(routes.reduce((cur, acc) => {
       return Object.assign({}, acc, {
@@ -20,14 +20,14 @@ export default class Pagine {
       })
     }, {})).resolve()
   }
-  
+
   setContent(md) {
     this.template({
       content: this.compileMarkdown(md)
     })
   }
-  
+
   compileMarkdown(md) {
-    return this.converter.makeHtml(md);
+    return this.converter.toHTML(md);
   }
 }

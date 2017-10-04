@@ -11,6 +11,9 @@
   <a href="https://npmjs.org/package/pagine">
     <img src="https://img.shields.io/npm/v/pagine.svg" alt="npm version">
   </a>
+  <a href="https://github.com/johnsylvain/pagine/lib/pagine.min.js">
+    <img src="https://img.shields.io/github/size/johnsylvain/pagine/lib/pagine.min.js.svg" alt="npm version">
+  </a>
 </p>
 
 ---

@@ -6,7 +6,7 @@ function bootstrap() {
       routes: [
         {
           path: '/',
-          md: '## home page'                    
+          md: '## home page'
         },
         {
           path: '/about',
@@ -18,7 +18,7 @@ function bootstrap() {
 }
 
 describe('Pagine', function() {
-    
+
 
   describe('routing', function() {
     bootstrap.call(this, undefined);
@@ -30,10 +30,10 @@ describe('Pagine', function() {
 
   describe('markdown transformation', function() {
     bootstrap.call(this, undefined);
-    
+
     it('should compile markdown to html', () => {
       const md = this.pagine.compileMarkdown('# hello');
-      expect(md).toEqual('<h1 id=\"hello\">hello</h1>')
+      expect(md).toEqual('<h1>hello</h1>')
     })
   });
 
