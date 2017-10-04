@@ -6,13 +6,15 @@
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
   "license": "MIT",
-  "scripts" :{
+  "scripts": {
     "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --progress --colors --watch",
     "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack",
     "test": "./node_modules/.bin/jest"
   },
   "dependencies": {
     "front-matter": "^2.2.0",
+    "lodash": "^4.17.4",
+    "mdify": "^1.0.8",
     "navigo": "^5.3.1",
     "showdown": "^1.7.5"
   },
