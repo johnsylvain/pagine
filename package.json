@@ -2,7 +2,7 @@
   "name": "pagine",
   "version": "1.0.0",
   "description": "Client-side markdown website generator",
-  "main": "index.js",
+  "main": "lib/pagine.min.js",
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
   "license": "MIT",
