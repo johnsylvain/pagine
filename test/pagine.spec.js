@@ -1,4 +1,4 @@
-import Pagine from '../src/index';
+import Pagine from '../lib/index';
 
 function bootstrap() {
   beforeEach(() => {
