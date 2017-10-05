@@ -2,7 +2,7 @@
   "name": "pagine",
   "version": "1.0.0",
   "description": "Client-side markdown website generator",
-  "main": "lib/pagine.min.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
   "license": "MIT",
@@ -13,25 +13,18 @@
     }
   ],
   "scripts": {
-    "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --progress --colors --watch",
-    "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack",
     "test": "./node_modules/.bin/jest",
     "test:bundle": "./node_modules/.bin/bundlesize"
   },
   "dependencies": {
-    "front-matter": "^2.2.0",
-    "lodash": "^4.17.4",
     "markdown": "^0.5.0",
-    "mdify": "^1.0.8",
-    "navigo": "^5.3.1",
-    "showdown": "^1.7.5"
+    "navigo": "^5.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "bundlesize": "^0.15.1",
-    "jest": "^21.2.1",
-    "webpack": "^3.6.0"
+    "jest": "^21.2.1"
   }
 }
