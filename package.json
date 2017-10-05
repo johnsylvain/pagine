@@ -6,10 +6,17 @@
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
   "license": "MIT",
+  "bundlesize": [
+    {
+      "path": "./lib/index.js",
+      "maxSize": "10 kB"
+    }
+  ],
   "scripts": {
     "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --progress --colors --watch",
     "build": "WEBPACK_ENV=build ./node_modules/.bin/webpack",
-    "test": "./node_modules/.bin/jest"
+    "test": "./node_modules/.bin/jest",
+    "test:bundle": "./node_modules/.bin/bundlesize"
   },
   "dependencies": {
     "front-matter": "^2.2.0",
@@ -23,6 +30,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "bundlesize": "^0.15.1",
     "jest": "^21.2.1",
     "webpack": "^3.6.0"
   }
