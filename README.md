@@ -36,21 +36,29 @@ yarn add pagine
 ```
 
 ## Usage
+
+**JavaScript**
 ```js
 import Pagine from 'pagine';
 
 new Pagine({
+  view: '#view',
   routes: [
     {
-      path: '/',
-      md: './home.md',
-      layout: 'main'
+      path: '/home',
+      md: './markdown/home.md',
+      layout: '#main'
     }
-  ],
-  layouts: {
-    main: document.querySelector('#main').innerHTML
-  }
+  ]
 })
+```
+
+**HTML**
+```html
+<div id="view"></div>
+<script type="text/html" id="main">
+  <%= content %>
+</script>
 ```
 
 ## Contributing
