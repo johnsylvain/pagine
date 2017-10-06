@@ -7,12 +7,12 @@ new Pagine({
   routes: [
     {
       path: '/',
-      md: '/markdown/home.md',
+      md: './markdown/home.md',
       layout: 'main'
     },
     {
       path: '/docs',
-      md: '/markdown/docs.md',
+      md: './markdown/docs.md',
       layout: 'main'
     }
   ]
