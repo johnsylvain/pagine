@@ -1,1 +1,49 @@
-My GitHub Page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pagine - Serverless Markdown website generator</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="grid">
+      <div class="col-1-3">
+        <header>
+          <h1 class="brand">Pagine</h1>
+          <nav>
+            <ul id="nav">
+              <li class="active"><a href="#/">Home</a></li>
+              <li><a href="#/docs">Docs</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <div class="col-2-3">
+        <main>
+          <!-- Template View -->
+          <div id="view"></div>
+        </main>
+      </div>
+    </div>
+    <footer>
+      <p>
+        Built by <a href="https://github.com/johnsylvain/">John Sylvain</a> &copy; <script>document.write(new Date().getFullYear())</script>
+      </p>
+      <p>
+        Powered by <a href="https://github.com/johnsylvain/pagine">Pagine</a>
+      </p>
+    </footer>
+  </div>
+
+
+  <script type="text/html" id="main">
+    <div>
+      <%=content%>
+    </div>
+  </script>
+  <script src="./dist/bundle.js"></script>
+</body>
+</html>
