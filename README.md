@@ -47,7 +47,7 @@ new Pagine({
     {
       path: '/home',
       md: './markdown/home.md',
-      layout: '#main'
+      layout: 'main'
     }
   ]
 })
