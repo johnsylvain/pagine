@@ -1,5 +1,10 @@
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+
 import Pagine from '../lib/pagine.js';
 import { $ } from '../lib/dom';
+
+const mock = new MockAdapter(axios);
 
 function bootstrap() {
   beforeEach(() => {
@@ -52,11 +57,14 @@ describe('Pagine module', function() {
     bootstrap.call(this);
 
     it('should compile template into view', () => {
-      this.pagine.setContent('main', '# Readme');
+      mock.onGet('https://pastebin.com/raw/rrE3RU3T').reply(200, '# test markdown');
 
-      var output = $('#view').first().innerHTML.trim()
-      console.log(output);
-      expect(output).toBe('<h1>Readme</h1>');
+      this.pagine.setContent('main', 'https://pastebin.com/raw/rrE3RU3T')
+        .then((res) => {
+          var output = $('#view').first().innerHTML.trim()
+          console.log(output);
+          expect(output).toBe('<h1>test markdown</h1>');
+        })
     });
 
     /*
