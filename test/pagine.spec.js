@@ -49,7 +49,7 @@ describe('Pagine module', function() {
 
     it('should compile markdown to html', () => {
       const md = this.pagine.compileMarkdown('# hello');
-      expect(md).toEqual('<h1>hello</h1>')
+      expect(md.trim()).toEqual('<h1 id=\"hello\">hello</h1>')
     })
   });
 
