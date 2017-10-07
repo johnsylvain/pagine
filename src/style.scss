@@ -1,6 +1,6 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
+a, abbr, acronym, address, big, cite,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -139,11 +139,15 @@ nav {
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    margin: 0.6em 0;
+    margin-bottom: 0.4em;
+    &:not(:first-child){ 
+      margin-top: 1em;
+    }
   }
-  h1 { font-size: 1.825em; margin-top: 0; }
-  h2 { font-size: 1.525em; }
-  h3 { font-size: 1em; }
+  h1 { font-size: 1.825em; }
+  h2 { font-size: 1.525em; border-bottom: 1px solid $lightGray; padding-bottom: 0.2em;}
+  h3 { font-size: 1.25em; }
+  h4 { font-size: 1em; }
 
   p {
     margin-bottom: 1em;
@@ -153,6 +157,18 @@ nav {
     li {
       margin-left: 2em;
     }
+  }
+
+  strong {
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+
+  code {
+    background-color: $lightGray;
+    padding: 0.1em 0.5em;
+    border-radius: 0.2em;
+    font-family: monospace
   }
 }
 
