@@ -170,6 +170,13 @@ nav {
     border-radius: 0.2em;
     font-family: monospace
   }
+  pre {
+    background-color: $lightGray;
+    padding: 1em; 
+    border-radius: 0.2em;
+    margin-bottom: 1.5em;
+    display: block;    
+  }
 }
 
 footer {

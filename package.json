@@ -10,7 +10,7 @@
     "build": "./node_modules/.bin/webpack -p"
   },
   "dependencies": {
-    "pagine": "^1.1.0"
+    "pagine": "^1.1.1"
   },
   "devDependencies": {
     "css-loader": "^0.28.7",

@@ -2211,6 +2211,10 @@ markdown@^0.5.0:
   dependencies:
     nopt "~2.1.1"
 
+marked@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
@@ -2639,12 +2643,13 @@ p-map@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/p-map/-/p-map-1.2.0.tgz#e4e94f311eabbc8633a1e79908165fca26241b6b"
 
-pagine@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/pagine/-/pagine-1.1.0.tgz#dfc035b4bda7d64a7479c2f502ab83dfbed31058"
+pagine@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/pagine/-/pagine-1.1.1.tgz#301b972f083cbd8fa5ec60f18c84eb1e16dd0408"
   dependencies:
     axios "^0.16.2"
     markdown "^0.5.0"
+    marked "^0.3.6"
     navigo "^5.3.1"
     promise-polyfill "^6.0.2"
 
