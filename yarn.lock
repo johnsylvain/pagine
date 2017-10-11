@@ -2205,12 +2205,6 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-markdown@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/markdown/-/markdown-0.5.0.tgz#28205b565a8ae7592de207463d6637dc182722b2"
-  dependencies:
-    nopt "~2.1.1"
-
 marked@^0.3.6:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
@@ -2363,10 +2357,6 @@ nan@^2.3.0, nan@^2.3.2:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
 
-navigo@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/navigo/-/navigo-5.3.1.tgz#df22c5b84ebf2a121cdaaac1387a876c9f780606"
-
 ncname@1.0.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ncname/-/ncname-1.0.0.tgz#5b57ad18b1ca092864ef62b0b1ed8194f383b71c"
@@ -2471,7 +2461,7 @@ node-sass@^4.5.3:
     sass-graph "^2.1.1"
     stdout-stream "^1.4.0"
 
-"nopt@2 || 3", nopt@~2.1.1:
+"nopt@2 || 3":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-2.1.2.tgz#6cccd977b80132a07731d6e8ce58c2c8303cf9af"
   dependencies:
@@ -2643,14 +2633,12 @@ p-map@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/p-map/-/p-map-1.2.0.tgz#e4e94f311eabbc8633a1e79908165fca26241b6b"
 
-pagine@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/pagine/-/pagine-1.1.1.tgz#301b972f083cbd8fa5ec60f18c84eb1e16dd0408"
+pagine@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/pagine/-/pagine-1.1.2.tgz#997639ec5150580b6ebf63cccd26dee050445286"
   dependencies:
     axios "^0.16.2"
-    markdown "^0.5.0"
     marked "^0.3.6"
-    navigo "^5.3.1"
     promise-polyfill "^6.0.2"
 
 pako@~0.2.0:
