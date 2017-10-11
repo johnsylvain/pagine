@@ -2,7 +2,11 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 import Pagine from '../lib/pagine.js';
-import { $ } from '../lib/dom';
+
+const $ = document.querySelectorAll.bind(document);
+NodeList.prototype.first = function() {
+  return this[0];
+}
 
 const mock = new MockAdapter(axios);
 
@@ -40,7 +44,7 @@ describe('Pagine module', function() {
     bootstrap.call(this);
 
     it('should create routes', () => {
-      expect(this.pagine.router._routes.length).toBe(2);
+      expect(Object.keys(this.pagine.router.routes).length).toBe(2);
     });
   });
 
