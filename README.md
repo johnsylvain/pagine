@@ -18,7 +18,7 @@
 </p>
 
 ---
-Pagine is a system to create multipage, text heavy single page applications. Your content is loaded from markdown files and displayed on defined application routes. Pagine is great for documentation, blogs, and other text heavy websites.
+Pagine is a system to create multipage, content driven SPAs. Your content is loaded from markdown files and displayed on defined application routes. Pagine is great for documentation, blogs, and other text heavy websites.
 
 ## Features
 - Page generation from markdown files 
