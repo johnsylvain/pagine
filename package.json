@@ -6,16 +6,16 @@
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
   "license": "MIT",
-  "bundlesize": [
+  "size-limit": [
     {
       "path": "./lib/index.js",
-      "maxSize": "10 kB"
+      "maxSize": "12 kB"
     }
   ],
   "scripts": {
     "test": "./node_modules/.bin/jest",
     "test:watch": "npm test -- --watch",
-    "test:bundle": "./node_modules/.bin/bundlesize"
+    "test:bundle": "./node_modules/.bin/size-limit"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -27,8 +27,8 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
-    "bundlesize": "^0.15.1",
     "jest": "^21.2.1",
-    "jsdom": "^11.3.0"
+    "jsdom": "^11.3.0",
+    "size-limit": "^0.11.6"
   }
 }
