@@ -15,6 +15,10 @@
     <img src="https://img.shields.io/badge/stability-experimental-orange.svg"
       alt="API stability" />
   </a>
+  <a href="https://travis-ci.org/johnsylvain/pagine">
+    <img src="https://img.shields.io/travis/johnsylvain/pagine.svg"
+      alt="API stability" />
+  </a>
 </p>
 
 ---
