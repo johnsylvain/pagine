@@ -1,4 +1,4 @@
-import Template from '../lib/templateEngine';
+import Template from '../src/templateEngine';
 
 describe('Template Engine', function() {
   beforeEach(() => {

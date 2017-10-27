@@ -1,7 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
-import Pagine from '../lib/pagine.js';
+import Pagine from '../src/pagine.js';
 
 const $ = document.querySelectorAll.bind(document);
 NodeList.prototype.first = function() {
