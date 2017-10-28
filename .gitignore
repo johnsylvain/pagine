@@ -66,3 +66,5 @@ typings/
 
 # sourcemaps
 lib/*.map
+
+**/.DS_Store
