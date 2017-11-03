@@ -38,9 +38,9 @@ npm install pagine --save
 ```bash
 yarn add pagine
 ```
-**via [download](https://raw.githubusercontent.com/johnsylvain/pagine/master/lib/pagine.js)**
+**via [download](https://raw.githubusercontent.com/johnsylvain/pagine/master/lib/pagine.min.js)**
 ```html
-<script src="path/to/pagine.js"></script>
+<script src="path/to/pagine.min.js"></script>
 ```
 
 
