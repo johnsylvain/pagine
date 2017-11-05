@@ -44,7 +44,8 @@ describe('Pagine module', function() {
     bootstrap.call(this);
 
     it('should create routes', () => {
-      expect(Object.keys(this.pagine.router.routes).length).toBe(2);
+      // # of routes + 404 route
+      expect(Object.keys(this.pagine.router.routes).length).toBe(3);
     });
   });
 

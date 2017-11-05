@@ -1,3 +1,5 @@
+var utils = require('./utils');
+
 /**
  * Router class
  * @class
@@ -9,7 +11,9 @@ var Router = (function() {
    * @constructs Router
    */
   function Router(hash) {
-    this.routes = {};
+    this.routes = {
+      '/404': function() { }
+    };
     this.hash = hash || '#';
 
     this.bindEvents();
@@ -30,7 +34,7 @@ var Router = (function() {
    * @param  {object} routes
    */
   Router.prototype.on = function(routes) {
-    this.routes = routes;
+    this.routes = utils.extend({}, this.routes, routes);
   }
 
   /**
@@ -44,8 +48,8 @@ var Router = (function() {
     if (route) {
       route();
     } else {
-      this.routes['/']();
-      history.replaceState(undefined, undefined, this.hash + '/');
+      this.routes['/404']();
+      history.replaceState(undefined, undefined, this.hash + '/404');
     }
   }
 
