@@ -1,5 +1,5 @@
 ## Setup
-A small amount of setup is needed to get up and running with Pagine. As of `1.1.X`, you need a module bundler to use Pagine in your projects. Install via npm or yarn;
+A small amount of setup is needed to get up and running with Pagine. Pagine can be installed via npm/yarn or by way of download;
 
 __npm__
 ```
@@ -9,6 +9,11 @@ npm install pagine --save
 __yarn__
 ```
 yarn add pagine
+```
+
+__[download](https://raw.githubusercontent.com/johnsylvain/pagine/master/lib/pagine.min.js)__
+```
+<script src="path/to/pagine.min.js"></script>
 ```
 
 ## Configuration

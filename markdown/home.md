@@ -1,6 +1,7 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 [![NPM Version](https://img.shields.io/npm/v/pagine.svg)]()
 [![API Stability](https://img.shields.io/badge/stability-experimental-orange.svg)]()
+[![API Stability](https://img.shields.io/travis/johnsylvain/pagine.svg)]()
 
 "Page" + "Engine"
 
