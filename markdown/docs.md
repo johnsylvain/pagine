@@ -39,7 +39,7 @@ Our HTML should reflect the `view` that we have assigned.
 Templates allow us to define how our compiled HTML displays on the screen. We can create as many templates as we want that create different layouts (i.e. a main layout, post layout, etc).
 
 A simple template may look like this:
-```
+``` 
 <script type="text/html" id="main">
   <%= content %>
 </script>

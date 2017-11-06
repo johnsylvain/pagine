@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -117,25 +117,26 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(4);
+__webpack_require__(5);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(2);
-
-
-/***/ }),
+/* 1 */,
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Pagine = __webpack_require__(3);
+module.exports = __webpack_require__(3);
 
-__webpack_require__(7);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Pagine = __webpack_require__(4);
+
+__webpack_require__(16);
 
 new Pagine({
   view: '#view',
@@ -163,17 +164,18 @@ var app = {
     this.location = window.location.hash;
     
     var _this = this;
-    var children = Array.from(document.getElementById('nav').children);
+    var children = Array.from(document.getElementsByClassName('nav')[0].children[0].children);
+    console.log(children)
     
     if (this.location === '') {
-      return children[0].classList.add('active');
+      return children[0].classList.add('nav__link--active');
     }
 
     children.forEach(function(node) {
       if (node.childNodes[0].getAttribute('href') === _this.location) {
-        node.classList.add('active');
+        node.childNodes[0].classList.add('nav__link--active');
       } else {
-        node.classList.remove('active');
+        node.childNodes[0].classList.remove('nav__link--active');
       }
     })
   }
@@ -182,7 +184,7 @@ var app = {
 app.init();
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {(function webpackUniversalModuleDefinition(root, factory) {
@@ -4069,7 +4071,7 @@ module.exports = TemplateEngine;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0).setImmediate, __webpack_require__(0).clearImmediate))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -4259,10 +4261,10 @@ module.exports = TemplateEngine;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(7)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 var g;
@@ -4289,7 +4291,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -4479,52 +4481,9 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(8);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(10)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(9)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:\"\";content:none}table{border-collapse:collapse;border-spacing:0}*{box-sizing:border-box}.grid{margin:0 0 20px}.grid:after{content:\"\";display:table;clear:both}[class*=col-]{float:left;padding-right:20px}.grid [class*=col-]:last-of-type{padding-right:0}.col-2-3{width:66.66%}.col-1-3{width:33.33%}.col-1-2{width:50%}.col-1-4{width:25%}.col-1-8{width:12.5%}.container{max-width:800px;margin:0 auto;padding:1em;margin-top:2em}body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif}h1{font-weight:700;font-size:2em;margin-bottom:.5em}a{color:#3498db;text-decoration:none}a:hover{text-decoration:underline}nav ul li{margin-bottom:.5em;border-left:4px solid #3498db}nav ul li a{padding:.8em 1em;text-decoration:none;color:#555;display:block}nav ul li:hover{color:#222}nav ul li:hover a{text-decoration:none}nav ul li.active{background-color:#efefef;font-weight:700;color:#222}#view{line-height:150%;color:#555}#view h1,#view h2,#view h3,#view h4,#view h5,#view h6{font-weight:700;margin-bottom:.4em}#view h1:not(:first-child),#view h2:not(:first-child),#view h3:not(:first-child),#view h4:not(:first-child),#view h5:not(:first-child),#view h6:not(:first-child){margin-top:1em}#view h1{font-size:1.825em}#view h2{font-size:1.525em;border-bottom:1px solid #efefef;padding-bottom:.2em}#view h3{font-size:1.25em}#view h4{font-size:1em}#view p{margin-bottom:1em}#view ul{list-style-type:disc}#view ul li{margin-left:2em}#view strong{font-weight:700;margin-bottom:1em}#view code{padding:.1em .5em;font-family:monospace}#view code,#view pre{background-color:#efefef;border-radius:.2em}#view pre{padding:1em;margin-bottom:1.5em;display:block}footer{opacity:.8;color:#555;border-top:3px solid #efefef;padding:1em 0;line-height:150%;margin-top:6em;font-size:.8em}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 9 */
+/* 8 */,
+/* 9 */,
+/* 10 */
 /***/ (function(module, exports) {
 
 /*
@@ -4606,7 +4565,10 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -4662,7 +4624,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(11);
+var	fixUrls = __webpack_require__(15);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -4978,7 +4940,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ (function(module, exports) {
 
 
@@ -5070,6 +5032,51 @@ module.exports = function (css) {
 	// send back the fixed css
 	return fixedCss;
 };
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(17);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(14)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/sass-loader/lib/loader.js!./style.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(10)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "#view {\n  line-height: 150%; }\n  #view h1, #view h2, #view h3, #view h4, #view h5, #view h6 {\n    margin-bottom: 0.4em; }\n  #view h1 {\n    font-size: 1.825em; }\n  #view h2 {\n    font-size: 1.525em;\n    padding-bottom: 0.2em; }\n    #view h2:not(:first-child) {\n      margin-top: 2em; }\n  #view h3 {\n    font-size: 1.25em; }\n  #view h4 {\n    font-size: 1em; }\n  #view p {\n    margin-bottom: 1em; }\n  #view ul {\n    list-style-type: disc; }\n    #view ul li {\n      margin-left: 2em; }\n  #view .badges {\n    margin-bottom: 2rem; }\n    #view .badges a {\n      box-shadow: none; }\n  #view strong {\n    font-weight: bold;\n    margin-bottom: 1em; }\n  #view code {\n    background-color: #efefef;\n    padding: 0.1em 0.5em;\n    border-radius: 0.2em;\n    font-family: monospace; }\n  #view pre {\n    background-color: #efefef;\n    padding: 1em;\n    border-radius: 0.2em;\n    margin-bottom: 1.5em;\n    display: block; }\n\nfooter {\n  opacity: 0.8;\n  color: #555;\n  border-top: 3px solid #efefef;\n  padding: 1em 0;\n  line-height: 150%;\n  margin-top: 6em;\n  font-size: 0.8em;\n  text-align: left; }\n\n.container {\n  margin-top: 2rem; }\n", ""]);
+
+// exports
 
 
 /***/ })

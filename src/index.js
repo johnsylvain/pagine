@@ -28,17 +28,18 @@ var app = {
     this.location = window.location.hash;
     
     var _this = this;
-    var children = Array.from(document.getElementById('nav').children);
+    var children = Array.from(document.getElementsByClassName('nav')[0].children[0].children);
+    console.log(children)
     
     if (this.location === '') {
-      return children[0].classList.add('active');
+      return children[0].classList.add('nav__link--active');
     }
 
     children.forEach(function(node) {
       if (node.childNodes[0].getAttribute('href') === _this.location) {
-        node.classList.add('active');
+        node.childNodes[0].classList.add('nav__link--active');
       } else {
-        node.classList.remove('active');
+        node.childNodes[0].classList.remove('nav__link--active');
       }
     })
   }
