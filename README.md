@@ -43,8 +43,6 @@ yarn add pagine
 <script src="path/to/pagine.min.js"></script>
 ```
 
-
-
 ## Usage
 
 **JavaScript**
@@ -70,6 +68,9 @@ new Pagine({
   <%= content %>
 </script>
 ```
+
+## Routing
+Pagine is currently setup to use hash routes (i.e. `#/`, `#/docs`).
 
 ## Contributing
 You can request a new feature by submitting an issue. If you would like to implement a new feature feel free to issue a Pull Request.
