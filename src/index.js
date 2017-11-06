@@ -32,7 +32,7 @@ var app = {
     console.log(children)
     
     if (this.location === '') {
-      return children[0].classList.add('nav__link--active');
+      return children[0].children[0].classList.add('nav__link--active');
     }
 
     children.forEach(function(node) {
