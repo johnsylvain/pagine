@@ -1,4 +1,4 @@
-var markdown = require('marked');
+var snarkdown = require('snarkdown');
 var axios = require('axios');
 var Promise = require('promise-polyfill');
 
@@ -19,7 +19,7 @@ var Pagine = (function() {
   function Pagine(settings) {
     this.router = new Router('#');
     this.tmplEngine = new TemplateEngine();
-    this.markdown = markdown;
+    this.markdown = snarkdown;
 
     this.markdownCache = {};
 
