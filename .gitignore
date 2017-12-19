@@ -68,3 +68,5 @@ typings/
 lib/*.map
 
 **/.DS_Store
+dist
+lib

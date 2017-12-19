@@ -2,36 +2,45 @@
   "name": "pagine",
   "version": "1.2.0",
   "description": "Client-side markdown website generator",
-  "main": "lib/pagine.js",
+  "source": "src/index.js",
+  "module": "dist/pagine.es.js",
+  "main": "dist/pagine.js",
+  "umd:main": "dist/pagine.umd.js",
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
   "license": "MIT",
-  "size-limit": [
+  "bundlesize": [
     {
-      "path": "./src/index.js",
-      "maxSize": "8 KB"
+      "path": "./dist/pagine.js",
+      "maxSize": "3 kB"
     }
   ],
   "scripts": {
-    "test": "./node_modules/.bin/jest",
-    "test:watch": "npm test -- --watch",
-    "test:bundle": "./node_modules/.bin/size-limit",
-    "build": "./node_modules/.bin/webpack",
-    "build:prod": "./node_modules/.bin/webpack -p"
+    "build": "npm-run-all --silent -p build:main -s size",
+    "build:main": "microbundle",
+    "size": "strip-json-comments --no-whitespace dist/pagine.js | gzip-size && bundlesize",
+    "test": "npm run build && jest",
+    "test:watch": "npm test -- --watchAll",
+    "prepare": "npm t",
+    "release": "npm t && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "dependencies": {
-    "axios": "^0.16.2",
     "promise-polyfill": "^6.0.2",
-    "snarkdown": "^1.2.2"
+    "snarkdown": "^1.2.2",
+    "unfetch": "^3.0.0"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.9.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "bundlesize": "^0.15.3",
+    "gzip-size-cli": "^2.1.0",
     "jest": "^21.2.1",
     "jsdom": "^11.3.0",
-    "size-limit": "^0.11.6",
+    "microbundle": "^0.2.4",
+    "npm-run-all": "^4.1.2",
+    "strip-json-comments-cli": "^1.0.1",
     "webpack": "^3.8.1"
   }
 }

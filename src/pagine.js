@@ -1,5 +1,6 @@
-var snarkdown = require('snarkdown');
+var snarkdown = require('snarkdown').default;
 var axios = require('axios');
+require('unfetch/polyfill');
 var Promise = require('promise-polyfill');
 
 var Router = require('./router');
@@ -17,6 +18,8 @@ var Pagine = (function() {
    * @param {object} settings Object of settions (i.e. routes, view)
    */
   function Pagine(settings) {
+    'use strict';
+
     this.router = new Router('#');
     this.tmplEngine = new TemplateEngine();
     this.markdown = snarkdown;
@@ -54,23 +57,13 @@ var Pagine = (function() {
    * @returns {string} Markdown file contents
    */
   Pagine.prototype.fetchMarkdownFile = function(url) {
-    if (this.markdownCache[url]) {
+    if (this.markdownCache[url])
       return Promise.resolve(this.markdownCache[url]);
-    }
 
-    var _this = this;
-
-    return new Promise(function(resolve, reject) {
-      return axios.get(url)
-        .then(function(response) {
-          _this.markdownCache[url] = response.data;
-          resolve(response.data);
-        })
-        .catch(function(err) {
-          console.log(err)
-          reject(err);
-        })
-    })
+    return fetch(url)
+      .then(function(res) {
+        return res.text();
+      })
   }
 
   /**
