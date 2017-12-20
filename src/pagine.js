@@ -1,5 +1,4 @@
-var snarkdown = require('snarkdown').default;
-var axios = require('axios');
+var snarkdown = require('snarkdown');
 require('unfetch/polyfill');
 var Promise = require('promise-polyfill');
 
@@ -60,10 +59,20 @@ var Pagine = (function() {
     if (this.markdownCache[url])
       return Promise.resolve(this.markdownCache[url]);
 
-    return fetch(url)
-      .then(function(res) {
-        return res.text();
-      })
+    return new Promise(function(reject, resolve) {
+      return fetch(url)
+        .then(function(res) {
+          return res.text();
+        })
+        .then(function(md) {
+          this.markdownCache[url] = md;
+          resolve(md)
+        })
+        .catch(function(err) {
+          reject(err)
+        })
+
+    })
   }
 
   /**
