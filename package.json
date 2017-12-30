@@ -1,6 +1,6 @@
 {
   "name": "pagine",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Client-side markdown website generator",
   "source": "src/index.js",
   "main": "lib/pagine.js",
