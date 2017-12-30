@@ -1,14 +1,9 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-
-import Pagine from '../src/pagine.js';
+import Pagine from '../src'
 
 const $ = document.querySelectorAll.bind(document);
 NodeList.prototype.first = function() {
   return this[0];
 }
-
-const mock = new MockAdapter(axios);
 
 function bootstrap() {
   beforeEach(() => {
@@ -45,7 +40,7 @@ describe('Pagine module', function() {
 
     it('should create routes', () => {
       // # of routes + 404 route
-      expect(Object.keys(this.pagine.router.routes).length).toBe(3);
+      expect(Object.keys(this.pagine.router.routes).length).toBe(2);
     });
   });
 
@@ -62,12 +57,9 @@ describe('Pagine module', function() {
     bootstrap.call(this);
 
     it('should compile template into view', () => {
-      mock.onGet('https://pastebin.com/raw/rrE3RU3T').reply(200, '# test markdown');
-
       this.pagine.setContent('main', 'https://pastebin.com/raw/rrE3RU3T')
         .then((res) => {
           var output = $('#view').first().innerHTML.trim()
-          console.log(output);
           expect(output).toBe('<h1>test markdown</h1>');
         })
     });

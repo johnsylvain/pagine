@@ -1,3 +1,3 @@
-var Pagine = require('./pagine');
+var Pagine = require('./pagine')
 
-module.exports = Pagine;
+module.exports = Pagine
