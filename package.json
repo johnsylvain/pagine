@@ -3,22 +3,20 @@
   "version": "1.2.0",
   "description": "Client-side markdown website generator",
   "source": "src/index.js",
-  "module": "dist/pagine.es.js",
-  "main": "dist/pagine.js",
-  "umd:main": "dist/pagine.umd.js",
+  "main": "lib/pagine.js",
   "repository": "https://github.com/johnsylvain/pagine",
   "author": "John Sylvain <john.n.sylvain@gmail.com>",
   "license": "MIT",
   "bundlesize": [
     {
-      "path": "./dist/pagine.js",
-      "maxSize": "3 kB"
+      "path": "./lib/pagine.js",
+      "maxSize": "5 kB"
     }
   ],
   "scripts": {
     "build": "npm-run-all --silent -p build:main -s size",
-    "build:main": "microbundle",
-    "size": "strip-json-comments --no-whitespace dist/pagine.js | gzip-size && bundlesize",
+    "build:main": "webpack -p",
+    "size": "strip-json-comments --no-whitespace lib/pagine.js | gzip-size && bundlesize",
     "test": "npm run build && jest",
     "test:watch": "npm test -- --watchAll",
     "prepare": "npm t",

@@ -9,7 +9,7 @@ var TemplateEngine = (function() {
    * @constructs TemplateEngine
    */
   function TemplateEngine() {
-    this.cache = {};
+    this.cache = {}
   }
 
   /**
@@ -18,7 +18,7 @@ var TemplateEngine = (function() {
    * @param  {object} data Data to be injected
    * @returns {function|string}
    */
-  TemplateEngine.prototype.tmpl = function tmpl(str, data){
+  TemplateEngine.prototype.tmpl = function tmpl (str, data){
     var fn = !/\W/.test(str) ?
       this.cache[str] = this.cache[str] ||
         this.tmpl(document.getElementById(str).innerHTML) :
@@ -34,13 +34,13 @@ var TemplateEngine = (function() {
           .split("\t").join("');")
           .split("%>").join("p.push('")
           .split("\r").join("\\'")
-      + "');}return p.join('');");
+      + "');}return p.join('');")
 
-    return data ? fn( data ) : fn;
-  };
+    return data ? fn( data ) : fn
+  }
 
-  return TemplateEngine;
+  return TemplateEngine
 
-})();
+})()
 
-module.exports = TemplateEngine;
+module.exports = TemplateEngine
