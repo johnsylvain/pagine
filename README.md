@@ -39,7 +39,7 @@ npm install pagine --save
 ```bash
 yarn add pagine
 ```
-**via [download](https://raw.githubusercontent.com/johnsylvain/pagine/master/lib/pagine.min.js)**
+**via [download](https://raw.githubusercontent.com/johnsylvain/pagine/master/lib/pagine.js)**
 ```html
 <script src="path/to/pagine.min.js"></script>
 ```
@@ -48,7 +48,7 @@ yarn add pagine
 
 **JavaScript**
 ```js
-import Pagine from 'pagine';
+import Pagine from 'pagine'
 
 new Pagine({
   view: '#view',
@@ -77,4 +77,4 @@ Pagine is currently setup to use hash routes (i.e. `#/`, `#/docs`).
 You can request a new feature by submitting an issue. If you would like to implement a new feature feel free to issue a Pull Request.
 
 ## License
-Pagine is protected under the [MIT License](https://choosealicense.com/licenses/mit/)
+[MIT License](https://choosealicense.com/licenses/mit/)
