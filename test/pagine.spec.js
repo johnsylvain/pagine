@@ -39,18 +39,8 @@ describe('Pagine module', function() {
     bootstrap.call(this);
 
     it('should create routes', () => {
-      // # of routes + 404 route
       expect(Object.keys(this.pagine.router.routes).length).toBe(2);
     });
-  });
-
-  describe('markdown transformation', function() {
-    bootstrap.call(this);
-
-    it('should compile markdown to html', () => {
-      const md = this.pagine.compileMarkdown('# hello');
-      expect(md.trim()).toEqual('<h1>hello</h1>')
-    })
   });
 
   describe('view rendering', () => {

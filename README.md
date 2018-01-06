@@ -22,7 +22,7 @@
 </p>
 
 ---
-Pagine is a light-weight (~ 2.5 Kb gzipped) system to create multipage, content driven SPAs. Your content is loaded from markdown files and displayed on defined application routes. Pagine is great for documentation, blogs, and other text heavy websites.
+Pagine is a light-weight (~ 2.7 Kb gzipped) system to create multipage, content driven SPAs. Your content is loaded from markdown files and displayed on defined application routes. Pagine is great for documentation, blogs, and other text heavy websites.
 
 ## Features
 - Page generation from markdown files 

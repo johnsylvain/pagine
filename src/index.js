@@ -1,3 +1,3 @@
-var Pagine = require('./pagine')
+import Pagine from './pagine'
 
 module.exports = Pagine
