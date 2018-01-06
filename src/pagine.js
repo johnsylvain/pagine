@@ -33,7 +33,7 @@ export default class Pagine {
    * @param  {array} routes array of route paths and associated markdown
    */
   createRoutes (routes) {
-    var mappedRoutes = routes.reduce((acc, cur) => {
+    const mappedRoutes = routes.reduce((acc, cur) => {
       acc[cur.path] = () => {
         this.setContent(cur.layout, cur.md);
       }
