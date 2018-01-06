@@ -1,30 +1,30 @@
-var snarkdown = require('snarkdown')
-var unfetch = require('unfetch')
+import snarkdown from 'snarkdown'
+import unfetch from 'unfetch'
 
-var Router = require('./router')
-var TemplateEngine = require('./templateEngine')
+import Router from './router'
+import TemplateEngine from './templateEngine'
+import { compose } from './utils'
 
 /**
  * Pagine class
  * @class
  */
-var Pagine = (function () {
+export default class Pagine {
 
   /**
    * Initializes a new instance of Pagine
    * @constructs Pagine
    * @param {object} settings Object of settings (i.e. routes, view)
    */
-  function Pagine(settings) {
-    this.router = new Router('#')
-    this.tmplEngine = new TemplateEngine()
-    this.markdown = snarkdown.default || snarkdown
-    this.fetch = unfetch.default || unfetch
-
-    this.markdownCache = {}
+  constructor(settings) {
+    this.router = new Router()
+    this.templateEngine = new TemplateEngine()
 
     this.view = settings.view || '#view'
+    this.cache = { md: {} }
+
     this.createRoutes(settings.routes)
+    this.router.listen()
   }
 
   /**
@@ -32,13 +32,11 @@ var Pagine = (function () {
    * @name Pagine#createRoutes
    * @param  {array} routes array of route paths and associated markdown
    */
-  Pagine.prototype.createRoutes = function createRoutes (routes) {
-    var _this = this
-
-    var mappedRoutes = routes.reduce(function (acc, cur) {
-      acc[cur.path] = function () {
+  createRoutes (routes) {
+    var mappedRoutes = routes.reduce((acc, cur) => {
+      acc[cur.path] = () => {
         this.setContent(cur.layout, cur.md);
-      }.bind(_this)
+      }
       return acc
     }, {})
 
@@ -51,12 +49,12 @@ var Pagine = (function () {
    * @param  {string} url
    * @returns {string} Markdown file contents
    */
-  Pagine.prototype.fetchMarkdownFile = function fetchMarkdownFile (url) {
-    if (this.markdownCache[url])
-      return Promise.resolve(this.markdownCache[url])
-
-    return this.fetch(url)
-      .then(function (res) { return res.text() })
+  fetchMarkdownFile (url) {
+    return (this.cache.md[url])
+      ? Promise.resolve(this.cache.md[url])
+      : unfetch(url)
+        .then(res => res.text())
+        .then(md => Promise.resolve(this.cache.md[url] = md))
   }
 
   /**
@@ -66,42 +64,19 @@ var Pagine = (function () {
    * @param   {string} md Markdown to be rendered into layout
    * @returns {string}
    */
-  Pagine.prototype.setContent = function setContent (layout, url) {
-    var _this = this
+  setContent (layout, url) {
+    return this.fetchMarkdownFile(url)
+      .then((md) => {
+        const compiled = compose(
+          snarkdown,
+          x => ({ content: x }), // format data for templating
+          this.templateEngine.tmpl(layout)
+        )(md)
 
-    return new Promise(function (resolve, reject) {
-      _this.fetchMarkdownFile(url)
-        .then(function (md) {
-          _this.markdownCache[url] = md
+        document.querySelector(this.view).innerHTML = compiled
 
-          var compiledHTML = _this.compileMarkdown(md)
-
-          var template = _this.tmplEngine.tmpl(layout, {
-            content: compiledHTML
-          })
-
-          document.querySelector(_this.view).innerHTML = template
-
-          resolve(template)
-        })
-        .catch(function (err) {
-          reject(err)
-        })
-    })
-  };
-
-  /**
-   * Transforms markdown into HTML
-   * @name Pagine#compileMarkdown
-   * @param  {string} md Markdown to be compiled
-   * @returns {string} Compiled HTML
-   */
-  Pagine.prototype.compileMarkdown = function compileMarkdown (md) {
-    return this.markdown(md)
+        Promise.resolve(compiled)
+      })
+      .catch(err => Promise.reject(err))
   }
-
-  return Pagine
-
-})();
-
-module.exports = Pagine
+}

@@ -2,13 +2,13 @@
  * TemplateEngine class
  * @class
  */
-var TemplateEngine = (function() {
+export default class TemplateEngine {
 
   /**
    * Initializes a new instance of TemplateEngine
    * @constructs TemplateEngine
    */
-  function TemplateEngine() {
+  constructor () {
     this.cache = {}
   }
 
@@ -18,8 +18,8 @@ var TemplateEngine = (function() {
    * @param  {object} data Data to be injected
    * @returns {function|string}
    */
-  TemplateEngine.prototype.tmpl = function tmpl (str, data){
-    var fn = !/\W/.test(str) ?
+  tmpl (str, data){
+    const fn = !/\W/.test(str) ?
       this.cache[str] = this.cache[str] ||
         this.tmpl(document.getElementById(str).innerHTML) :
 
@@ -36,11 +36,6 @@ var TemplateEngine = (function() {
           .split("\r").join("\\'")
       + "');}return p.join('');")
 
-    return data ? fn( data ) : fn
+    return data ? fn(data) : fn
   }
-
-  return TemplateEngine
-
-})()
-
-module.exports = TemplateEngine
+}
