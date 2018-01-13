@@ -23,7 +23,6 @@
     "release": "npm t && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "dependencies": {
-    "promise-polyfill": "^6.0.2",
     "snarkdown": "^1.2.2",
     "unfetch": "^3.0.0"
   },
